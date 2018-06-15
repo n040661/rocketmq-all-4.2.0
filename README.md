@@ -1,10 +1,21 @@
-1. ĞŞ¸ÄÅäÖÃÎÄ¼şÔÚdistribution/confÄ¿Â¼ÏÂ
+1. ä¿®æ”¹é…ç½®æ–‡ä»¶åœ¨distribution/confç›®å½•ä¸‹
 
-2. NamesrvStartup.java Ìí¼ÓJVMÆô¶¯²ÎÊı£º
+2. NamesrvStartup.java æ·»åŠ JVMå¯åŠ¨å‚æ•°ï¼š
 -Drocketmq.home.dir=D:\Work\code\spring\Cloud\rocketmq-all-4.2.0\distribution
 -Duser.home=D:\Work\code\spring\Cloud\rocketmq-all-4.2.0\distribution
 
-3. BrokerStartup.javaÌí¼ÓJVMÆô¶¯²ÎÊı£º
+3. BrokerStartup.javaæ·»åŠ JVMå¯åŠ¨å‚æ•°ï¼š
 -Drocketmq.home.dir=D:\Work\code\spring\Cloud\rocketmq-all-4.2.0\distribution
 -Duser.home=D:\Work\code\spring\Cloud\rocketmq-all-4.2.0\distribution
 -Drocketmq.namesrv.addr=localhost:9876
+
+
+å‚è€ƒï¼š
+ä¸€è‡´æ€§ï¼š
+https://blog.csdn.net/iie_libi/article/details/54236300
+https://blog.csdn.net/zyw23zyw23/article/details/79070044
+
+æºç åˆ†æï¼šhttps://yq.aliyun.com/articles/61141
+
+è§†é¢‘ï¼š
+http://blog.sina.com.cn/s/blog_693f08470102vibt.html
