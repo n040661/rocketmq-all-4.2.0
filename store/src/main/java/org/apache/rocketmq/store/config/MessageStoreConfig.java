@@ -16,9 +16,10 @@
  */
 package org.apache.rocketmq.store.config;
 
-import java.io.File;
 import org.apache.rocketmq.common.annotation.ImportantField;
 import org.apache.rocketmq.store.ConsumeQueue;
+
+import java.io.File;
 
 public class MessageStoreConfig {
     //The root directory in which the log data is kept
@@ -74,7 +75,7 @@ public class MessageStoreConfig {
     // When to delete,default is at 4 am
     @ImportantField
     private String deleteWhen = "04";
-    private int diskMaxUsedSpaceRatio = 75;
+    private int diskMaxUsedSpaceRatio = 99;
     // The number of hours to keep a log file before deleting it (in hours)
     @ImportantField
     private int fileReservedTime = 72;

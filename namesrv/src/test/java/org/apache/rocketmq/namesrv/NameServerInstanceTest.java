@@ -19,7 +19,7 @@ package org.apache.rocketmq.namesrv;
 import org.apache.rocketmq.common.namesrv.NamesrvConfig;
 import org.apache.rocketmq.remoting.netty.NettyServerConfig;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.Before;
 
 import java.io.File;
 
@@ -30,27 +30,12 @@ public class NameServerInstanceTest {
     protected NettyServerConfig nettyServerConfig = new NettyServerConfig();
     protected NamesrvConfig namesrvConfig = new NamesrvConfig();
 
-    @Test
+    @Before
     public void startup() throws Exception {
         String projectDir = System.getProperty("user.dir")+ File.separator+"target"+ File.separator;
         namesrvConfig.setRocketmqHome(projectDir);
-        namesrvConfig.setConfigStorePath(projectDir+ "namesrv" + File.separator + "kvConfig.json");
-        namesrvConfig.setKvConfigPath(projectDir+ "namesrv" + File.separator  + "namesrv.properties");
-        nettyServerConfig.setListenPort(9876);
-        nameSrvController = new NamesrvController(namesrvConfig, nettyServerConfig);
-        boolean initResult = nameSrvController.initialize();
-        assertThat(initResult).isTrue();
-        nameSrvController.start();
-    }
-
-    public static void main(String[] args) throws Exception {
-         NamesrvController nameSrvController = null;
-         NettyServerConfig nettyServerConfig = new NettyServerConfig();
-         NamesrvConfig namesrvConfig = new NamesrvConfig();
-        String projectDir = System.getProperty("user.dir")+ File.separator+"target"+ File.separator;
-        namesrvConfig.setRocketmqHome(projectDir);
-        namesrvConfig.setConfigStorePath(projectDir+ "namesrv" + File.separator + "kvConfig.json");
-        namesrvConfig.setKvConfigPath(projectDir+ "namesrv" + File.separator  + "namesrv.properties");
+        namesrvConfig.setConfigStorePath(projectDir + "namesrv" + File.separator + "kvConfig.json");
+        namesrvConfig.setKvConfigPath(projectDir + "namesrv" + File.separator + "namesrv.properties");
         nettyServerConfig.setListenPort(9876);
         nameSrvController = new NamesrvController(namesrvConfig, nettyServerConfig);
         boolean initResult = nameSrvController.initialize();

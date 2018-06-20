@@ -17,8 +17,6 @@
 package org.apache.rocketmq.namesrv.routeinfo;
 
 import io.netty.channel.Channel;
-import java.util.ArrayList;
-import java.util.concurrent.ConcurrentHashMap;
 import org.apache.rocketmq.common.TopicConfig;
 import org.apache.rocketmq.common.namesrv.RegisterBrokerResult;
 import org.apache.rocketmq.common.protocol.body.TopicConfigSerializeWrapper;
@@ -27,6 +25,9 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -72,6 +73,7 @@ public class RouteInfoManagerTest {
         topicConfig.setOrder(false);
         topicConfigConcurrentHashMap.put("unit-test", topicConfig);
         topicConfigSerializeWrapper.setTopicConfigTable(topicConfigConcurrentHashMap);
+        //使用mock模拟一个Channel的实现类
         Channel channel = mock(Channel.class);
         RegisterBrokerResult registerBrokerResult = routeInfoManager.registerBroker("default-cluster", "127.0.0.1:10911", "default-broker", 1234, "127.0.0.1:1001",
             topicConfigSerializeWrapper, new ArrayList<String>(), channel);

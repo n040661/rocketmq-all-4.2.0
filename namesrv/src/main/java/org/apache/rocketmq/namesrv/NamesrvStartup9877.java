@@ -40,7 +40,7 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.Callable;
 
-public class NamesrvStartup {
+public class NamesrvStartup9877 {
     public static Properties properties = null;
     public static CommandLine commandLine = null;
 
@@ -68,7 +68,7 @@ public class NamesrvStartup {
 
             final NamesrvConfig namesrvConfig = new NamesrvConfig();
             final NettyServerConfig nettyServerConfig = new NettyServerConfig();
-            nettyServerConfig.setListenPort(9876);
+            nettyServerConfig.setListenPort(9877);
             if (commandLine.hasOption('c')) {
                 String file = commandLine.getOptionValue('c');
                 if (file != null) {

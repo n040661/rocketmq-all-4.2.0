@@ -48,7 +48,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.apache.rocketmq.remoting.netty.TlsSystemConfig.TLS_ENABLE;
 
-public class BrokerStartup {
+public class BrokerSlaveStartup {
     public static Properties properties = null;
     public static CommandLine commandLine = null;
     public static String configFile = null;
@@ -57,7 +57,7 @@ public class BrokerStartup {
     public static void main(String[] args) {
         //设置测试工作目录
         //正式调试可以设置JVM参数
-        String workDir =  System.getProperty("user.dir") + File.separator+"distribution";
+        String workDir =  System.getProperty("user.dir") + File.separator+"distribution"+ File.separator + "slaveDir";
         System.setProperty("rocketmq.home.dir",workDir);
         System.setProperty("user.home",workDir);
         System.setProperty("rocketmq.namesrv.addr","localhost:9876;localhost:9877");
@@ -111,10 +111,15 @@ public class BrokerStartup {
             final NettyServerConfig nettyServerConfig = new NettyServerConfig();
             final NettyClientConfig nettyClientConfig = new NettyClientConfig();
 
+            //从Broker，BrokerId=0为主Broker
+            brokerConfig.setBrokerId(1);
+            nettyServerConfig.setListenPort(10915);
+
             nettyClientConfig.setUseTLS(Boolean.parseBoolean(System.getProperty(TLS_ENABLE,
-                String.valueOf(TlsSystemConfig.tlsMode == TlsMode.ENFORCING))));
-            nettyServerConfig.setListenPort(10911);
+                    String.valueOf(TlsSystemConfig.tlsMode == TlsMode.ENFORCING))));
+
             final MessageStoreConfig messageStoreConfig = new MessageStoreConfig();
+            messageStoreConfig.setBrokerRole(BrokerRole.SLAVE);
 
             if (BrokerRole.SLAVE == messageStoreConfig.getBrokerRole()) {
                 int ratio = messageStoreConfig.getAccessMessageInMemoryMaxRatio() - 10;

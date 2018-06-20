@@ -25,6 +25,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class App {
 
     public static void main(String[] args) {
+        System.setProperty("rocketmq.namesrv.addr","localhost:9876;localhost:9877");
+
         SpringApplication.run(App.class, args);
     }
 
