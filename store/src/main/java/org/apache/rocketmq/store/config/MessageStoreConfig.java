@@ -75,7 +75,7 @@ public class MessageStoreConfig {
     // When to delete,default is at 4 am
     @ImportantField
     private String deleteWhen = "04";
-    private int diskMaxUsedSpaceRatio = 99;
+    private int diskMaxUsedSpaceRatio = 100;
     // The number of hours to keep a log file before deleting it (in hours)
     @ImportantField
     private int fileReservedTime = 72;
