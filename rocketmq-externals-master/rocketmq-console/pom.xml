@@ -3,12 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+    <!--
     <parent>
         <artifactId>rocketmq-externals-master</artifactId>
         <groupId>org.apache.rocketmq</groupId>
         <version>4.2.0</version>
     </parent>
+    -->
 
+    <groupId>org.apache.rocketmq</groupId>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>rocketmq-console-ng</artifactId>
     <packaging>jar</packaging>
@@ -90,8 +93,20 @@
             <artifactId>joor</artifactId>
             <version>0.9.6</version>
         </dependency>
-
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>1.4.3.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -270,7 +285,17 @@
                 <version>3.0.4</version>
             </plugin>
 
-            
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <compilerVersion>1.7</compilerVersion>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

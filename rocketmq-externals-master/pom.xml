@@ -17,7 +17,6 @@
         <module>rocketmq-jms</module>
         <module>rocketmq-mysql</module>
         <module>rocketmq-redis</module>
-        <module>rocketmq-serializer</module>
         <module>rocketmq-spark</module>
         <module>rocketmq-spring-boot-starter</module>
     </modules>
