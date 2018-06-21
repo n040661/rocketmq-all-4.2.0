@@ -35,8 +35,6 @@
         <maven.test.skip>false</maven.test.skip>
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <!-- compiler settings properties -->
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <rocketmq.version>4.2.0</rocketmq.version>
         <spark.version>2.1.0</spark.version>
         <scala.version>2.11.8</scala.version>
